@@ -8,6 +8,6 @@
 
 ###Demo
 
-Tip: paste text/url is recommended instead of type
+Tip: paste text/url is recommended way to push.
 
 ![demo](doc/push.gif)

@@ -54,13 +54,16 @@ def main():
         payload = {"device_iden": args["iden"],
                    "title": args["title"]}
 
-        urlparse_result = urlparse.urlparse(args['body'])
+        body = args['body']
+        body = body.encode('utf-8')
+
+        urlparse_result = urlparse.urlparse(body)
         if urlparse_result.scheme:
             payload['type'] = 'link'
-            payload['url'] = args['body']
+            payload['url'] = body
         else:
             payload['type'] = 'note'
-            payload['body'] = args['body']
+            payload['body'] = body
 
         req.data = urllib.urlencode(payload)
         response = urllib2.urlopen(req)
